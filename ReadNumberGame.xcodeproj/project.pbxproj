@@ -11,6 +11,8 @@
 		4E9C13322AA6D562003CD05C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C13312AA6D562003CD05C /* ContentView.swift */; };
 		4E9C13342AA6D563003CD05C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E9C13332AA6D563003CD05C /* Assets.xcassets */; };
 		4E9C13372AA6D563003CD05C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E9C13362AA6D563003CD05C /* Preview Assets.xcassets */; };
+		4E9C133E2AA81972003CD05C /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C133D2AA81972003CD05C /* StartView.swift */; };
+		4E9C13402AA81D75003CD05C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C133F2AA81D75003CD05C /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		4E9C13312AA6D562003CD05C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4E9C13332AA6D563003CD05C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E9C13362AA6D563003CD05C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4E9C133D2AA81972003CD05C /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		4E9C133F2AA81D75003CD05C /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,8 @@
 				4E9C13312AA6D562003CD05C /* ContentView.swift */,
 				4E9C13332AA6D563003CD05C /* Assets.xcassets */,
 				4E9C13352AA6D563003CD05C /* Preview Content */,
+				4E9C133D2AA81972003CD05C /* StartView.swift */,
+				4E9C133F2AA81D75003CD05C /* ViewModel.swift */,
 			);
 			path = ReadNumberGame;
 			sourceTree = "<group>";
@@ -137,7 +143,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E9C133E2AA81972003CD05C /* StartView.swift in Sources */,
 				4E9C13322AA6D562003CD05C /* ContentView.swift in Sources */,
+				4E9C13402AA81D75003CD05C /* ViewModel.swift in Sources */,
 				4E9C13302AA6D562003CD05C /* ReadNumberGameApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
