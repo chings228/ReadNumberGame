@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct ReadNumberGameApp: App {
+    
+    @StateObject var vm = GameViewModel()
+    
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            StartView()
+                .environmentObject(vm)
         }
     }
 }
