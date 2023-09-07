@@ -15,11 +15,15 @@ class GameViewModel : ObservableObject{
     
     @Published var levelSelect : PlayLevel = .Beginner
     
-    @Published var randomNumber : Int = 0
+    @Published var randomNumber : Int!
     
      @Published var startGameCounter : Int = 3
     
+    @Published var gamePlayCounter : Int = 5
+    
     @Published var isGameStart = false
+    
+    @Published var isShowResult = false
     
     private var startGameTimer = Timer()
     
@@ -27,6 +31,8 @@ class GameViewModel : ObservableObject{
     
 
     func generateRandom(){
+        
+        print(levelSelect)
         
         if (levelSelect == .Beginner){
             
@@ -45,8 +51,10 @@ class GameViewModel : ObservableObject{
             randomNumber = Int.random(in: 1000...10000)
         }
         
-        print(randomNumber)
+        print(randomNumber!)
         print(Utils.convertToNumberReading(num: randomNumber, locale: languageSelect))
+        
+        fireGamePlayTimer()
         
     }
     
@@ -68,6 +76,8 @@ class GameViewModel : ObservableObject{
             startGameTimer.invalidate()
             isGameStart = true
             
+            generateRandom()
+            
         }
         
         
@@ -76,7 +86,27 @@ class GameViewModel : ObservableObject{
     
     func fireGamePlayTimer(){
         
-        
+        gamePlayTimer =  Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(calGamePlayTimerCounter), userInfo: nil, repeats: true)
         
     }
+    
+    @objc func calGamePlayTimerCounter(){
+        
+        gamePlayCounter -= 1
+        print(gamePlayCounter)
+        
+        if (gamePlayCounter == 0){
+            
+            print("game play end")
+            gamePlayTimer.invalidate()
+            isShowResult = true
+            
+            
+        }
+        
+    }
+    
+    
+
+    
 }

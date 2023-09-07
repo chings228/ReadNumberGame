@@ -20,6 +20,29 @@ struct GameView: View {
                     .font(.system(size: 200))
                     .fontWeight(.bold)
             }
+            else{
+                
+                if let randomNumber = gameViewModel.randomNumber{
+                    
+                    
+                    if (gameViewModel.isShowResult){
+                        
+                        Text("\(randomNumber)")
+                            .font(.system(size: 200))
+                            .fontWeight(.bold)
+                            .minimumScaleFactor(0.2)
+                    }
+                    
+
+
+                    
+                }
+                
+                
+                
+                
+                
+            }
             
 
             
