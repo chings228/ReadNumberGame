@@ -31,12 +31,21 @@ struct StartView: View {
                 
                 
                 NavigationLink{
+                    
+                    
                     GameView()
                 } label :{
                     
-                    startBtnView
+                    Text("Start")
+                        .padding()
+                        .font(.title)
+                        .fontWeight(.bold)
                     
                 }
+                .background(Color.blue)
+                .cornerRadius(20)
+                .foregroundColor(.white)
+                
                 
                 
                 
@@ -61,35 +70,7 @@ struct StartView_Previews: PreviewProvider {
 extension StartView{
     
     
-    
-    
-    private var startBtnView : some View{
-        
-        
-        
 
-        
-         Button {
-            print("start")
-
-        } label: {
-            Text("Start")
-                .padding()
-                .font(.title)
-                .fontWeight(.bold)
-            
-        }
-        .background(Color.blue)
-        .cornerRadius(20)
-        .foregroundColor(.white)
-        
-
-        
-        
-    }
-    
-    
-    
     
     
     private var gameConfigView : some View{

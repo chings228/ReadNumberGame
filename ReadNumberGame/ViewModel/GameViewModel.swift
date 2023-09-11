@@ -78,6 +78,19 @@ class GameViewModel : ObservableObject{
             
             generateRandom()
             
+            // read number
+            
+            
+            let voice = VoiceOut()
+            
+            voice.readNumberWithCompletionHandler(lang: "en-US", speech: "Hello I am John, This is Speed") { isFinihsed in
+                if (isFinihsed){
+                    
+                    print("finish read ")
+                    
+                }
+            }
+            
         }
         
         
