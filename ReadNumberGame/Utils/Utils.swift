@@ -24,10 +24,10 @@ struct Utils{
     
 
 
-    static let gameTimerCounterVal : Int = 4
-    static let startCounterVal : Int = 2
-    static let numOfQuestionVal : Int = 5
-    static let idleTimerCounterVal : Int = 2
+    static let gameWaitAnswerTimerCounterVal : Int = 4 // time to wait for answer input 
+    static let startCounterVal : Int = 1   // time wait to start game
+    static let numOfQuestionVal : Int = 5   // total number of guess per game
+    static let idleTimerCounterVal : Int = 2 // time pause between every game
     
     
     static func convertToNumberReading(num:Int,locale:String)->String{

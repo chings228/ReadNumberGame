@@ -18,45 +18,22 @@ class VoiceOut : NSObject,ObservableObject{
     
     @Published var isFinishTalk = false
     
-    
+    var synth = AVSpeechSynthesizer()
     var completionHandler : ((_ isFinished:Bool)->()) = { _ in }
     
     
-    let synth = AVSpeechSynthesizer()
+   
   
     
     override init(){
         super.init()
+
         synth.delegate = self
         
     }
     
     
-    func readnumber(lang:String ,speech : String ){
-        
-        
-        
-        isTalk = true
 
-        let audioSession = AVAudioSession.sharedInstance()
-        try? audioSession.setCategory(.playAndRecord, mode: .videoRecording, options: [.defaultToSpeaker,.allowAirPlay,.allowBluetoothA2DP])
-          // try? audioSession.setMode(AVAudioSession.Mode.spokenAudio)
-        try? audioSession.setActive(true)
-        
-        let utterance = AVSpeechUtterance(string:speech)
-      
-        utterance.pitchMultiplier = 1.0
-        utterance.rate = 0.5
-        utterance.voice = AVSpeechSynthesisVoice(language: lang)
-        utterance.volume = 10
-   
-        
-        print(utterance.speechString)
-      
-        synth.speak(utterance)
-
-        
-    }
     
     
     func readNumberWithCompletionHandler(lang:String,speech:String,completion:@escaping ((_ isFinihsed:Bool)->())){
@@ -81,8 +58,10 @@ class VoiceOut : NSObject,ObservableObject{
    
         
         print(utterance.speechString)
+        
+ 
       
-        synth.speak(utterance)
+        self.synth.speak(utterance)
         
     }
     
