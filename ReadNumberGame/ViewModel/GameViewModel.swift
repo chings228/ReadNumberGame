@@ -31,6 +31,10 @@ class GameViewModel : ObservableObject{
     
     var numOfQuestion = Utils.numOfQuestionVal
     
+    
+    
+   
+    
 
     func generateRandom(){
         

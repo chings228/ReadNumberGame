@@ -13,6 +13,13 @@ struct GameView: View {
     
     @State private var isAnimated = false
     
+    var screenWidth = UIScreen.main.bounds.size.width
+    
+    let keyboardCols = [GridItem( spacing: 0),GridItem(spacing: 0),GridItem(spacing: 0),GridItem(spacing: 0)]
+    
+    var keyboardSymbol = ["1","2","3","clear.fill","4","5","6","delete.backward.fill","7","8","9","0"]
+    
+    
     var body: some View {
         VStack{
             
@@ -61,6 +68,7 @@ struct GameView: View {
                 
             }
             
+            
             Spacer()
             
             keyboardView
@@ -73,7 +81,7 @@ struct GameView: View {
                 isAnimated = true
             }
             
-            //gameViewModel.fireStartGameTimer()
+            gameViewModel.fireStartGameTimer()
         }
         .onChange(of: gameViewModel.isGameStart) { newValue in
             print(gameViewModel.isGameStart)
@@ -83,6 +91,8 @@ struct GameView: View {
 
 
 extension  GameView {
+    
+    
 
     var keyboardView : some View {
         
@@ -90,8 +100,41 @@ extension  GameView {
         
         
         VStack{
+            LazyVGrid(columns: keyboardCols,spacing: 0) {
+                
+                ForEach(keyboardSymbol, id: \.self){ symbol in
+                    
+                    
+                    Button() {
+                        print(symbol)
+                    } label: {
+                        
+                        if let _ = Int(symbol){
+                            Text(symbol)
+                                .font(.title)
+                                .frame(width:screenWidth/4, height:screenWidth/4)
+                                .border(.black,width:0.5)
+                                .fontWeight(.bold)
+                            
+                        }
+                        
+                        else{
+                            Image(systemName: symbol)
+                                .scaleEffect(1.5)
+                                .frame(width:screenWidth/4, height:screenWidth/4)
+                                .border(.black,width:0.5)
+                                .fontWeight(.bold)
+                               
+                        }
+
+                    }
+                    
+
+                    
+
+                }
+            }
             
-            Text("Hello")
             
             
         }
