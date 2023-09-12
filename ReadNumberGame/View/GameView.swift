@@ -46,12 +46,23 @@ struct GameView: View {
                     
                     else{
                         
-                        Image(systemName: "waveform.path")
-                            .resizable()
-                            .padding(.horizontal)
-                            .scaledToFit()
-                            .scaleEffect(x: isAnimated ? 0.8: 1 , y :isAnimated ? 0.8 : 1.2)
-                            .animation(.easeIn(duration: 0.4).repeatForever(), value: isAnimated)
+                        ScrollView{
+                            
+                            HStack(spacing: 0, content: <#T##() -> _#>){
+                                Image(systemName: "waveform.path")
+                                    .resizable()
+                                    .padding(.horizontal)
+                                    .scaledToFit()
+                                    .padding(0)
+
+                                
+                            }
+
+                            
+                        }
+                        .frame(height:200)
+                        
+
                             
                             
                         
@@ -76,10 +87,11 @@ struct GameView: View {
             
             
         }
+        .ignoresSafeArea()
         .onAppear{
-            DispatchQueue.main.asyncAfter(deadline: .now()+2){
-                isAnimated = true
-            }
+//            DispatchQueue.main.asyncAfter(deadline: .now()+2){
+//                isAnimated = true
+//            }
             
             gameViewModel.fireStartGameTimer()
         }
