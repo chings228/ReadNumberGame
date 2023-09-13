@@ -25,6 +25,8 @@ class GameViewModel : ObservableObject{
     
     @Published var isShowResult = false
     
+    @Published var isSpeakingNumber = false
+    
     private var startGameTimer = Timer()
     
     private var gamePlayTimer = Timer()
@@ -114,12 +116,16 @@ class GameViewModel : ObservableObject{
             
             print("random number \(randomNumber!)")
             
+            isSpeakingNumber = true
+            
             voice.readNumberWithCompletionHandler(lang: "en-US", speech: "\(randomNumber!)") {[weak self] isFinihsed in
                 if (isFinihsed){
                     
                     print("finish read ")
                     
                     self?.fireGamePlayTimer()
+                    
+                    self?.isSpeakingNumber = false
                     
                 }
             }

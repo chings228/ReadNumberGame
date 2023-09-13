@@ -7,7 +7,11 @@
 
 import SwiftUI
 
+let soundWaveScrollView = Singleton.shared.scrollView
+
 struct GameView: View {
+    
+   
     
     @EnvironmentObject var gameViewModel : GameViewModel
     
@@ -16,6 +20,9 @@ struct GameView: View {
     var screenWidth = UIScreen.main.bounds.size.width
     
     let keyboardCols = [GridItem( spacing: 0),GridItem(spacing: 0),GridItem(spacing: 0),GridItem(spacing: 0)]
+    
+    
+   
     
     var keyboardSymbol = ["1","2","3","clear.fill","4","5","6","delete.backward.fill","7","8","9","0"]
     
@@ -26,12 +33,14 @@ struct GameView: View {
             Spacer()
             
             if (!gameViewModel.isGameStart){
-                
+
                 Text("\(gameViewModel.startGameCounter)")
                     .font(.system(size: 200))
                     .fontWeight(.bold)
             }
-            else{
+           
+            else {
+               
                 
                 if let randomNumber = gameViewModel.randomNumber{
                     
@@ -46,57 +55,40 @@ struct GameView: View {
                     
                     else{
                         
-                        ScrollView{
-                            
-                            HStack(spacing: 0, content: <#T##() -> _#>){
-                                Image(systemName: "waveform.path")
-                                    .resizable()
-                                    .padding(.horizontal)
-                                    .scaledToFit()
-                                    .padding(0)
-
-                                
-                            }
-
-                            
-                        }
-                        .frame(height:200)
+                       
+                        ScrollViewBridge()
+                            .frame(width:UIScreen.main.bounds.width, height:200)
                         
-
-                            
-                            
                         
                     }
-                    
 
-
-                    
                 }
-                
-                
-                
-                
-                
+
             }
-            
-            
             Spacer()
-            
             keyboardView
+            
             
             
             
         }
         .ignoresSafeArea()
         .onAppear{
-//            DispatchQueue.main.asyncAfter(deadline: .now()+2){
-//                isAnimated = true
-//            }
             
             gameViewModel.fireStartGameTimer()
         }
         .onChange(of: gameViewModel.isGameStart) { newValue in
             print(gameViewModel.isGameStart)
+        }
+        .onChange(of: gameViewModel.isSpeakingNumber) { isRead in
+            if isRead{
+                print("start read")
+                soundWaveScrollView.initTimer()
+            }
+            else{
+                print("end read")
+                soundWaveScrollView.stopTimer()
+            }
         }
     }
 }
@@ -140,9 +132,7 @@ extension  GameView {
                         }
 
                     }
-                    
 
-                    
 
                 }
             }
@@ -168,4 +158,30 @@ struct GameView_Previews: PreviewProvider {
             }())
     
     }
+}
+
+
+
+
+
+struct ScrollViewBridge : UIViewRepresentable{
+    
+    
+    func updateUIView(_ uiView: UIViewType, context: Context) {
+        
+    }
+    
+   
+   
+    
+    func makeUIView(context: Context) -> some UIView {
+        
+        
+        return soundWaveScrollView
+    }
+    
+
+    
+    
+    
 }

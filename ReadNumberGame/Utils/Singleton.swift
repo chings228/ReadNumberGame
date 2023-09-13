@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 class Singleton{
@@ -15,6 +16,8 @@ class Singleton{
     var selectedLang = "en-US"
     
     private init(){}
+    
+    let scrollView = ScrollViewRep(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 200))
     
     
 }
