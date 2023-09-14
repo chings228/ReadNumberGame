@@ -12,11 +12,8 @@ import AVFoundation
 
 
 
-class VoiceOut : NSObject,ObservableObject{
+class VoiceOut : AVSpeechSynthesizer{
 
-    @Published var isTalk = false
-    
-    @Published var isFinishTalk = false
     
     var synth = AVSpeechSynthesizer()
     var completionHandler : ((_ isFinished:Bool)->()) = { _ in }
@@ -25,24 +22,21 @@ class VoiceOut : NSObject,ObservableObject{
    
   
     
-    override init(){
-        super.init()
-
+   override init(){
+       
+       super.init()
         synth.delegate = self
         
     }
     
-    
 
-    
     
     func readNumberWithCompletionHandler(lang:String,speech:String,completion:@escaping ((_ isFinihsed:Bool)->())){
         
             
         completionHandler =  completion
         
-        
-        isTalk = true
+
 
         let audioSession = AVAudioSession.sharedInstance()
         try? audioSession.setCategory(.playAndRecord, mode: .videoRecording, options: [.defaultToSpeaker,.allowAirPlay,.allowBluetoothA2DP])
@@ -72,9 +66,7 @@ class VoiceOut : NSObject,ObservableObject{
         
         synth.stopSpeaking(at: .immediate)
         
-        isTalk = false
-        
-        print(isTalk)
+
         
         
     }
@@ -88,7 +80,7 @@ extension VoiceOut:AVSpeechSynthesizerDelegate{
     
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance) {
         print("did start ")
-        isFinishTalk = false
+
         
    
         
@@ -98,10 +90,7 @@ extension VoiceOut:AVSpeechSynthesizerDelegate{
     
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         
-        isFinishTalk = true
-        print("did finish")
-        
-        print(isTalk)
+
 
             completionHandler(true)
         

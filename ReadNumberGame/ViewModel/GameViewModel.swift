@@ -34,6 +34,53 @@ class GameViewModel : ObservableObject{
     var numOfQuestion = Utils.numOfQuestionVal
     
     
+    @Published var answer = ""
+    
+    
+    
+    
+    func inputNumber(_ symbol : String){
+        print(symbol)
+        
+        if let keyval = Int(symbol) {
+            
+           
+            
+            answer.append(symbol)
+            
+            let answerval = Int(symbol)!
+            
+            print(answerval)
+        }
+        else{
+            
+            
+            
+            if (symbol ==  "delete.backward.fill"){
+                
+                
+                if (answer.count > 1){
+                    
+                    answer = 
+                }
+                
+                
+            }else  if (symbol ==  " clear.fill"){
+                
+                answer = ""
+            }
+            
+           
+            
+            
+        }
+        
+
+        
+        
+        
+    }
+    
     
    
     

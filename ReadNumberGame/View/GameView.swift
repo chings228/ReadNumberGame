@@ -13,9 +13,11 @@ struct GameView: View {
     
    
     
+    
     @EnvironmentObject var gameViewModel : GameViewModel
     
     @State private var isAnimated = false
+    
     
     var screenWidth = UIScreen.main.bounds.size.width
     
@@ -53,6 +55,17 @@ struct GameView: View {
                             .minimumScaleFactor(0.2)
                     }
                     
+                    else if gameViewModel.answer.count > 0{
+                        
+                        Text(gameViewModel.answer)
+                            .font(.system(size: 200))
+                            .foregroundColor(.brown)
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.2)
+                        
+                        
+                    }
+                    
                     else{
                         
                        
@@ -84,6 +97,7 @@ struct GameView: View {
             if isRead{
                 print("start read")
                 soundWaveScrollView.initTimer()
+                
             }
             else{
                 print("end read")
@@ -99,10 +113,7 @@ extension  GameView {
     
 
     var keyboardView : some View {
-        
-        
-        
-        
+
         VStack{
             LazyVGrid(columns: keyboardCols,spacing: 0) {
                 
@@ -110,7 +121,10 @@ extension  GameView {
                     
                     
                     Button() {
-                        print(symbol)
+                        //print(symbol)
+                        
+                        gameViewModel.inputNumber(symbol)
+                        
                     } label: {
                         
                         if let _ = Int(symbol){
@@ -132,6 +146,8 @@ extension  GameView {
                         }
 
                     }
+                    .disabled(gameViewModel.isSpeakingNumber ? true : false)
+                    
 
 
                 }
