@@ -58,7 +58,7 @@ struct GameView: View {
                     else if gameViewModel.answer.count > 0{
                         
                         Text(gameViewModel.answer)
-                            .font(.system(size: 200))
+                            .font(.system(size: 150))
                             .foregroundColor(.brown)
                             .lineLimit(1)
                             .minimumScaleFactor(0.2)
@@ -87,7 +87,7 @@ struct GameView: View {
         }
         .ignoresSafeArea()
         .onAppear{
-            
+            print("on appear")
             gameViewModel.fireStartGameTimer()
         }
         .onChange(of: gameViewModel.isGameStart) { newValue in
@@ -103,6 +103,14 @@ struct GameView: View {
                 print("end read")
                 soundWaveScrollView.stopTimer()
             }
+        }
+        .onDisappear{
+            
+            // stop game
+            
+            print("on disappear")
+            
+            gameViewModel.onDisappearEndGame()
         }
     }
 }

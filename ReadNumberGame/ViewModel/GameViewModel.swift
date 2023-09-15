@@ -38,19 +38,38 @@ class GameViewModel : ObservableObject{
     
     
     
+    func onDisappearEndGame(){
+        
+                
+        
+        
+        
+    }
+    
+    
     
     func inputNumber(_ symbol : String){
         print(symbol)
         
-        if let keyval = Int(symbol) {
-            
-           
-            
+        if let _ = Int(symbol){
+ 
             answer.append(symbol)
             
-            let answerval = Int(symbol)!
+            guard let fullAnswerVal = Int(answer), let randomNumber = randomNumber else {return}
             
-            print(answerval)
+            print(fullAnswerVal, randomNumber)
+            
+            if (fullAnswerVal == randomNumber){
+                
+                print("bingo")
+                
+                
+            }
+            
+            
+            
+            
+
         }
         else{
             
@@ -59,14 +78,15 @@ class GameViewModel : ObservableObject{
             if (symbol ==  "delete.backward.fill"){
                 
                 
-                if (answer.count > 1){
-                    
-                    answer = 
+                print("delete")
+                if (answer.count >= 1){
+                    answer = answer.substring(to: answer.count-1)
                 }
                 
                 
-            }else  if (symbol ==  " clear.fill"){
+            }else  if (symbol ==  "clear.fill"){
                 
+                print("clear")
                 answer = ""
             }
             
@@ -202,6 +222,8 @@ class GameViewModel : ObservableObject{
             print("game play end")
             gamePlayTimer.invalidate()
             isShowResult = true
+            
+            answer = ""
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 2){
                 

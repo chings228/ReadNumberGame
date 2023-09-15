@@ -19,6 +19,7 @@
 		4E9C134D2AA826A6003CD05C /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C134C2AA826A6003CD05C /* GameView.swift */; };
 		4E9C13512AB18B7B003CD05C /* ScrollViewRep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C13502AB18B7B003CD05C /* ScrollViewRep.swift */; };
 		4E9C13532AB2A268003CD05C /* Demo_ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C13522AB2A268003CD05C /* Demo_ScrollView.swift */; };
+		4E9C13562AB3FB06003CD05C /* Ext_String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C13552AB3FB06003CD05C /* Ext_String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		4E9C134C2AA826A6003CD05C /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		4E9C13502AB18B7B003CD05C /* ScrollViewRep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewRep.swift; sourceTree = "<group>"; };
 		4E9C13522AB2A268003CD05C /* Demo_ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo_ScrollView.swift; sourceTree = "<group>"; };
+		4E9C13552AB3FB06003CD05C /* Ext_String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ext_String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 		4E9C132E2AA6D562003CD05C /* ReadNumberGame */ = {
 			isa = PBXGroup;
 			children = (
+				4E9C13542AB3FAE6003CD05C /* Extension */,
 				4E9C13452AA82090003CD05C /* Utils */,
 				4E9C13422AA81FBC003CD05C /* View */,
 				4E9C13412AA81F92003CD05C /* ViewModel */,
@@ -113,6 +116,14 @@
 				4E9C13482AA820C5003CD05C /* Singleton.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		4E9C13542AB3FAE6003CD05C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				4E9C13552AB3FB06003CD05C /* Ext_String.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +203,7 @@
 				4E9C13532AB2A268003CD05C /* Demo_ScrollView.swift in Sources */,
 				4E9C134B2AA82176003CD05C /* Utils.swift in Sources */,
 				4E9C13402AA81D75003CD05C /* GameViewModel.swift in Sources */,
+				4E9C13562AB3FB06003CD05C /* Ext_String.swift in Sources */,
 				4E9C13302AA6D562003CD05C /* ReadNumberGameApp.swift in Sources */,
 				4E9C134D2AA826A6003CD05C /* GameView.swift in Sources */,
 				4E9C13442AA81FD6003CD05C /* VoiceOut.swift in Sources */,
