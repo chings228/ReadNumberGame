@@ -78,6 +78,15 @@ struct GameView: View {
                 }
 
             }
+            
+            Spacer()
+            
+            ProgressView(value:CGFloat(max(0,gameViewModel.gamePlayCounter)),total:CGFloat(Utils.gameWaitAnswerTimerCounterVal))
+                .padding([.leading, .trailing],10)
+                .tint(Color.red)
+                .scaleEffect(x:1 ,y:2 ,anchor:.center)
+                .frame(height: 8.0)
+            
             Spacer()
             keyboardView
             

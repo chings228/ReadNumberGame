@@ -40,8 +40,11 @@ class GameViewModel : ObservableObject{
     
     func onDisappearEndGame(){
         
-                
+        isGameStart = false;
         
+        gamePlayTimer.invalidate()
+        
+        startGameCounter = Utils.startCounterVal
         
         
     }

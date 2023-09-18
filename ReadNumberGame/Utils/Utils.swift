@@ -24,7 +24,7 @@ struct Utils{
     
 
 
-    static let gameWaitAnswerTimerCounterVal : Int = 20 // time to wait for answer input
+    static let gameWaitAnswerTimerCounterVal : Int = 10 // time to wait for answer input
     static let startCounterVal : Int = 1   // time wait to start game
     static let numOfQuestionVal : Int = 5   // total number of guess per game
     static let idleTimerCounterVal : Int = 2 // time pause between every game
